@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Cart" representedClassName="Cart" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="totalPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="dishes" toMany="YES" deletionRule="Nullify" destinationEntity="Dish" inverseName="cartsIn" inverseEntity="Dish" syncable="YES"/>
+        <relationship name="resDetail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Restaurant" inverseName="owner" inverseEntity="Restaurant" syncable="YES"/>
+    </entity>
+    <entity name="Dish" representedClassName="Dish" syncable="YES" codeGenerationType="class">
+        <attribute name="cuisine" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dishImg" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="dishType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="qtyPrice" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="cartsIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart" inverseName="dishes" inverseEntity="Cart" syncable="YES"/>
+    </entity>
+    <entity name="Restaurant" representedClassName="Restaurant" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cart" inverseName="resDetail" inverseEntity="Cart" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Cart" positionX="-801.421875" positionY="22.18359375" width="128" height="105"/>
+        <element name="Dish" positionX="-996.71875" positionY="75.22265625" width="128" height="180"/>
+        <element name="Restaurant" positionX="-891" positionY="126" width="128" height="105"/>
+    </elements>
+</model>
